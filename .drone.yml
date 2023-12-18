@@ -18,7 +18,7 @@ clone:
 environment:
   NAME: nginx
   DOCKER_REGISTRY: ccr.ccs.tencentyun.com
-  DOCKER_REPOSITORY: storezhang/nginx
+  DOCKER_REPOSITORY: storezhang/nextcloud
   TAG: 0.0.$${DRONE_BUILD_NUMBER}
 
 
