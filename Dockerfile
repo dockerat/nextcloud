@@ -1,4 +1,4 @@
-FROM linuxserver/nextcloud:28.0.2
+FROM linuxserver/nextcloud:28.0.3
 
 
 LABEL author="storezhang<华寅>" \
