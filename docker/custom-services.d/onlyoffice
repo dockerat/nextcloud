@@ -1,0 +1,30 @@
+#!/usr/bin/with-contenv bash
+
+if [ "${TASK_ONLYOFFICE}" != "true" ]; then # 不启用任务
+  echo "配置任务不启用"
+  sleep 2147483647 # 睡眠最大时间，防止服务重启
+  exit
+fi
+
+if [[ -z "${NEXTCLOUD_USERNAME}" && -z "${NEXTCLOUD_PASSWORD}" ]]; then # 没有配置用户信息
+  echo "没有配置用户信息，退出"
+  sleep 2147483647 # 睡眠最大时间，防止服务重启
+  exit
+fi
+
+times=1
+user="--user ${NEXTCLOUD_USERNAME}:${NEXTCLOUD_PASSWORD}"
+while true; do
+  result=$(curl "${user}" http://localhost/settings/admin/onlyoffice)
+  status=$(jq '.status' "${result}")
+  if [ "${status}" != "ok" ]; then # 状态不对，重新启用
+    data=$(jq '.data' "${result}")
+    curl http://localhost/ "${user}" --request POST --data "${data}" --header "Content-Type: application/json"
+  fi
+
+  # 睡眠，降低接口调用频率，最大12个小时（720秒）
+  ((duration=2**times%720))
+  echo "等待${duration}秒后再尝试检查"
+  sleep "${duration}"
+  times=${times}+1
+done
