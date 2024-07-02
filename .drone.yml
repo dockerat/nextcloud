@@ -50,7 +50,7 @@ steps:
       PASSWORD_CCR:
         from_secret: password_ccr
     settings:
-      repository: dokcerat/$${NAME}
+      repository: dockerat/$${NAME}
       tag: $${TAG}
       registry:
         hostname: ccr.ccs.tencentyun.com
