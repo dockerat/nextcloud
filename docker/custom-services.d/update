@@ -8,6 +8,6 @@ fi
 
 while true; do
   echo "开始自动升级应用"
-  occ app:upgrade --all
-  sleep "${60*24}"
+  occ app:update --all
+  sleep "${60*24}" # 睡眠一天
 done
