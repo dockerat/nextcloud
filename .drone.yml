@@ -48,7 +48,7 @@ steps:
         path: /var/lib/docker
     environment:
       PASSWORD_CCR:
-        from_secret: password_tencentyun_ccr
+        from_secret: password_ccr
     settings:
       repository: dokcerat/$${NAME}
       tag: $${TAG}
