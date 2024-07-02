@@ -52,7 +52,7 @@ steps:
     settings:
       repository: dokcerat/$${NAME}
       tag: $${TAG}
-      registries:
+      registry:
         hostname: ccr.ccs.tencentyun.com
         username: "160290688"
         password: $${PASSWORD_CCR}
