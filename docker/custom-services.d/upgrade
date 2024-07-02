@@ -1,0 +1,13 @@
+#!/usr/bin/with-contenv bash
+
+if [ "${TASK_UPGRADE}" != "true" ]; then # 不启用任务
+  echo "自动升级应用功能未启用"
+  sleep 2147483647 # 睡眠最大时间，防止服务重启
+  exit
+fi
+
+while true; do
+  echo "开始自动升级应用"
+  occ app:upgrade --all
+  sleep "${60*24}"
+done

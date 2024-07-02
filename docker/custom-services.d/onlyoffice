@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bash
 
-if [ "${TASK_ONLYOFFICE}" != "true" ]; then # 不启用任务
+if [ "${CHECK_ONLYOFFICE}" != "true" ]; then # 不启用任务
   echo "配置任务不启用"
   sleep 2147483647 # 睡眠最大时间，防止服务重启
   exit
