@@ -52,6 +52,9 @@ steps:
     settings:
       repository: dockerat/$${NAME}
       tag: $${TAG}
+      platforms:
+        - arch: amd64
+        - arch: arm64
       registry:
         hostname: ccr.ccs.tencentyun.com
         username: "160290688"
