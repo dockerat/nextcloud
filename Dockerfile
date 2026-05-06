@@ -1,4 +1,4 @@
-FROM swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/linuxserver/nextcloud:33.0.2
+FROM swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/linuxserver/nextcloud:33.0.3
 
 
 LABEL author="storezhang<华寅>" \
